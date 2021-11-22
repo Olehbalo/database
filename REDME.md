@@ -1,11 +1,30 @@
-To implement a database, write a script to create it in the kernel
-MySQL, which must meet the following criteria:
-❖ SQL-script can be run several times in a row and at
-this should not result in errors due to existing ones
-database elements. That is, appropriate must be provided
-DROP for tables and IF EXISTS to create a database.
-❖ For each table it is necessary to fill in with data on
-10-15 INSERT, while predicting the correct one
-data insertion procedure.
-❖ Create at least 2 additional indexes for tables,
-according to the preliminary analysis of the data structure.
+#lab 4 database
+1.Завдання виконується на основі спроектованої моделі БД в
+лаб.роботах No1 та розробленого скріпта в No3.
+2. БД повинна розгортатися за допомогою SQL-скріпта.
+3. Клієнтська програма мовою Java створюється у вигляді Maven
+проекту з підключенням до MySQL.
+4. Структура проекту створюється на основі MVC-патерну. Де
+модель повинна містити як Database Access Layer, так і
+Business Logic Layer. Реалізація Database Access рівня
+виконується на основі DAO-патерна.
+5. User Interface Layer реалізовується у вигляді консольного
+меню. При цьому Програма повинна забезпечувати роботу з
+даними в БД за допомогою JDBC:
+• вивід даних з таблиць;
+• вставку даних у таблиці;
+• видалення даних з таблиці;
+• обновлення даних у таблицях.
+6. Підключити до Maven наступні плагіни:
+❖ плагін FindBugs який здійснює автоматичну перевірку
+якості коду і пошук потенційних помилок в коді
+❖ плагін PMD
+❖ плагін Checkstyle - перевіряє дотримання code convention
+
+2
+
+Після завершення роботи слід виконати команду mvn site і
+переглянути результати її виконання в папці target/site
+В коді слід виправити всі помилки, які виявлять плагіни FindBugs,
+PMD і Checkstyle (окрім помилок, повязаних з відстуністю
+коментарів).

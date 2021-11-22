@@ -1,0 +1,39 @@
+package car.service.implementation;
+
+import car.model.dao.implementation.SellerDAO;
+import car.model.entity.Seller;
+import car.service.AbstractService;
+
+
+import java.sql.SQLException;
+import java.util.List;
+
+public class SellerService implements AbstractService<Seller> {
+
+    private final SellerDAO dao = new SellerDAO();
+
+    @Override
+    public List<Seller> findAll() throws SQLException {
+        return dao.findAll();
+    }
+
+    @Override
+    public Seller findById(Integer id) throws SQLException {
+        return dao.findById(id);
+    }
+
+    @Override
+    public void create(Seller entity) throws SQLException {
+        dao.create(entity);
+    }
+
+    @Override
+    public void update(Integer id, Seller entity) throws SQLException {
+        dao.update(id, entity);
+    }
+
+    @Override
+    public void delete(Integer id) throws SQLException {
+        dao.delete(id);
+    }
+}
