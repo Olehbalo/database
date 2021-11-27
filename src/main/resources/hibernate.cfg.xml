@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/projectlab</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.username">oleh</property>
+        <property name="connection.password">lenovog50</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+
+
+        <mapping class="com.car.model.entity.Car"/>
+        <mapping class="com.car.model.entity.Addres"/>
+        <mapping class="com.car.model.entity.CarDealership"/>
+        <mapping class="com.car.model.entity.CarType"/>
+        <mapping class="com.car.model.entity.Characteristic"/>
+        <mapping class="com.car.model.entity.Comment"/>
+        <mapping class="com.car.model.entity.Customer"/>
+        <mapping class="com.car.model.entity.Seller"/>
+        <mapping class="com.car.model.entity.Site"/>
+        <mapping class="com.car.model.entity.TestDrive"/>
+
+    </session-factory>
+</hibernate-configuration>
