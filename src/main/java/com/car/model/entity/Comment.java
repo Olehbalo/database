@@ -26,7 +26,7 @@ public class Comment {
     private String message;
 
     @ManyToOne
-    @JoinColumn(name = "customer_Id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
     private Customer customer;
 
     @OneToMany(mappedBy = "comment", fetch = FetchType.LAZY)

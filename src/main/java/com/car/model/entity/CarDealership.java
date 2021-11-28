@@ -27,7 +27,7 @@ public class CarDealership {
 
 
     @ManyToOne
-    @JoinColumn(name = "car_Id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "car_id", referencedColumnName = "id", nullable = false)
     private Car car;
 
     @ManyToOne

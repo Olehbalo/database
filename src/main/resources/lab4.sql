@@ -173,7 +173,7 @@ INSERT INTO test_drive(`brand`, `car_id`) VALUES
                                               ('mersedes', '1'),
                                               ('bmv', '2');
 
-INSERT INTO site(`car_dealership_Id`, `car_id`) VALUES
+INSERT INTO site(`car_dealership_id`, `car_id`) VALUES
                                                     ('1', '1'),
                                                     ('2', '2');
 

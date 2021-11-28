@@ -36,7 +36,7 @@ public class Car {
 
 
     @ManyToOne
-    @JoinColumn(name = "comment_Id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "comment_id", referencedColumnName = "id", nullable = false)
     private Comment comment;
 
     @ManyToOne
