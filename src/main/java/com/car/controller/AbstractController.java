@@ -1,20 +1,51 @@
 package com.car.controller;
 
-import java.sql.SQLException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.car.mapper.AbstractMapper;
+import com.car.service.AbstractService;
+
+import java.util.ArrayList;
 import java.util.List;
 
+public abstract class AbstractController<E, DTO, I> {
+    protected abstract AbstractService<E, I> getService();
 
-public interface AbstractController<E> {
+    protected abstract AbstractMapper<E, DTO> getMapper();
 
+    @GetMapping
+    public @ResponseBody
+    ResponseEntity<List<DTO>> getAll() {
+        List<E> entities = getService().getAll();
+        List<DTO> dtoObjects = new ArrayList<DTO>();
+        for (E entity : entities) {
+            dtoObjects.add(getMapper().mapEntityToDto(entity));
+        }
+        return new ResponseEntity<>(dtoObjects, HttpStatus.OK);
+    }
 
-    List<E> findAll() throws SQLException;
+    @GetMapping(path = "/{id}")
+    public @ResponseBody
+    ResponseEntity<DTO> getById(@PathVariable I id) {
+        return new ResponseEntity<>(getMapper().mapEntityToDto(getService().get(id)), HttpStatus.OK);
+    }
 
-    E get(Integer id) throws SQLException;
+    @PostMapping
+    public @ResponseBody
+    ResponseEntity<DTO> create(@RequestBody E entity) {
+        return new ResponseEntity<>(getMapper().mapEntityToDto(getService().create(entity)), HttpStatus.OK);
+    }
 
-    void update(Integer id, E entity) throws SQLException;
+    @PutMapping(path = "/{id}")
+    public @ResponseBody
+    ResponseEntity<DTO> update(@PathVariable I id, @RequestBody E entity) {
+        return new ResponseEntity<>(getMapper().mapEntityToDto(getService().update(id, entity)), HttpStatus.OK);
+    }
 
-    void create(E entity) throws SQLException;
-
-
-    void delete(Integer id) throws SQLException;
+    @DeleteMapping(path = "/{id}")
+    public @ResponseBody
+    ResponseEntity<DTO> delete(@PathVariable I id) {
+        return new ResponseEntity<>(getMapper().mapEntityToDto(getService().delete(id)), HttpStatus.OK);
+    }
 }
