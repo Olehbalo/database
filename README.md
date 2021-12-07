@@ -1,33 +1,14 @@
 # DataBases
-The task have to be performed on the basis of the designed database model from lab. works No. 1 and the developed script in lab No. 3.
+ЗБЕРЕЖУВАНІ ПРОЦЕДУРИ
+1. Забезпечити параметризовану вставку нових значень у таблицю Аптечна установа.
+2. Створити пакет, який вставляє 10 стрічок в таблицю Зона впливу у форматі < Noname+№> , наприклад: Noname5, Noname6, Noname7 і т.д.
 
-The database must be deployed using an SQL script.
-
-The program should be created as Maven project with MySQL connection.
-
-The project structure is created on the basis of MVC-pattern. Where the model must contain both a Database Access Layer, and a Business Logic Layer. Implementation of Database Access level performed on the basis of DAO-pattern.
-
-User Interface Layer is implemented as a console application. The program must work with data in the database using JDBC:
-
-output of data from tables
-insert data into the table
-delete data from the table
-update data in tables
-Connect the following plugins to Maven:
-
-FindBugs
-PMD
-Checkstyle
-To run:
-download project files git clone https://github.com/DanyloZhubryd/Database_Labs/pull/6
-switch to Lab6 branch git checkout Lab6
-compile maven project mvn compile
-package compiled code into .jar mvn package
-run application: java -cp target\Lab6-1.0-SNAPSHOT.jar ua.lviv.iot.App
-to check API go to http://localhost:8081/swagger-ui.html#/:
-Pick table
-Pick method that you want to test
-Type in body for request in JSON format(if body required)
-run checkstyle: mvn checkstyle:check
-check for bugs mvn findbugs:gui
-check for dublications in code mvn pmd:pmd
+3. Використовуючи курсор, забезпечити динамічне створення БД з іменами Співробітників, з випадковою кількістю таблиць для кожної БД (від 1 до 9). Структура таблиць довільна. Імена таблиць відповідають імені Співробітника з порядковим номером від 1 до 9.
+КОРИСТУВАЦЬКІ ФУНКЦІЇ
+1. Для таблиці Співробітники написати функцію як буде шукати AVG стовпця Трудовий стаж . Потім зробити вибірку даних (SELECT) менших за середнє значення, використовуючи дану функцію.
+2. Написати функцію, яка витягує за ключем між таблицями Вулиця та Аптечна установа значення поля Назва вулиці. Потім зробити вибірку усіх даних (SELECT) з таблиці Аптечна установа, використовуючи дану функцію.
+ТРИГЕРИ 
+1. Забезпечити цілісність значень для структури БД.
+2. для Співробітники→Серія та номер паспорту забезпечити формат вводу:  2 довільні букви + 2 пробіли + 6 цифр ; 
+3. у полі Співробітники →Ім’я допускається ввід лише таких імен: 'Галина', 'Олександр', 'Андріян' та 'Ілона'.
+4. При вставці значень у таблицю Аптечна установа автоматично доповнювати стовпець Назва значенням автоінкрементного стовпця.
